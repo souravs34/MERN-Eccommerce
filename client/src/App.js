@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import { Container } from "react-bootstrap";
 import HomePage from "./Pages/HomePage";
 import ProductPage from "./Pages/ProductPage";
-
+import CartScreen from "./Pages/CartScreen";
 const App = () => {
   return (
     <Router>
@@ -16,6 +16,9 @@ const App = () => {
           </Route>
           <Route path="/product/:id">
             <ProductPage />
+          </Route>
+          <Route path="/cart/:id?">
+            <CartScreen />
           </Route>
         </Container>
       </main>
