@@ -45,7 +45,7 @@ const ProductPage = () => {
             <Image src={product.image} alt={product.name} fluid></Image>
           </Col>
           <Col md={3}>
-            <ListGroup variant="flush">
+            <listGroup variant="flush">
               <ListGroup.Item>
                 <h3>{product.name}</h3>
               </ListGroup.Item>
@@ -59,11 +59,11 @@ const ProductPage = () => {
               <ListGroup.Item>
                 Description: ${product.description}
               </ListGroup.Item>
-            </ListGroup>
+            </listGroup>
           </Col>
           <Col md={3}>
             <Card>
-              <listGroup variant="flush">
+              <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
@@ -80,7 +80,7 @@ const ProductPage = () => {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-              </listGroup>
+              </ListGroup>
               {product.countInStock > 0 && (
                 <ListGroup.Item>
                   <Row>
