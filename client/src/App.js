@@ -9,6 +9,7 @@ import LoginScreen from "./Pages/LoginScreen";
 import RegisterScreen from "./Pages/RegisterScreen";
 import ProfileScreen from "./Pages/ProfileScreen";
 import ShippingScreen from "./Pages/ShippingScreen";
+import PaymentScreen from "./Pages/PaymentScreen";
 
 const App = () => {
   return (
@@ -27,6 +28,9 @@ const App = () => {
           </Route>
           <Route path="/shipping">
             <ShippingScreen />
+          </Route>
+          <Route path="/payment">
+            <PaymentScreen />
           </Route>
           <Route path="/product/:id">
             <ProductPage />
