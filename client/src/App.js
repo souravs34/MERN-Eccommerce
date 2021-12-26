@@ -6,14 +6,23 @@ import HomePage from "./Pages/HomePage";
 import ProductPage from "./Pages/ProductPage";
 import CartScreen from "./Pages/CartScreen";
 import LoginScreen from "./Pages/LoginScreen";
+import RegisterScreen from "./Pages/RegisterScreen";
+import ProfileScreen from "./Pages/ProfileScreen";
+
 const App = () => {
   return (
     <Router>
       <Navbar />
       <main className="py-3">
         <Container>
-          <Route path="/signin">
+          <Route path="/login">
             <LoginScreen />
+          </Route>
+          <Route path="/register" exact>
+            <RegisterScreen />
+          </Route>
+          <Route path="/profile">
+            <ProfileScreen />
           </Route>
           <Route path="/product/:id">
             <ProductPage />
