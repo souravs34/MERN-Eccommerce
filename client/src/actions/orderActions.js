@@ -6,6 +6,9 @@ import {
   ORDER_DETAILS_FAIL,
   ORDER_DETAILS_REQUEST,
   ORDER_DETAILS_SUCCESS,
+  ORDER_LIST_MY_FAIL,
+  ORDER_LIST_MY_REQUEST,
+  ORDER_LIST_MY_SUCCESS,
   ORDER_PAY_FAIL,
   ORDER_PAY_REQUEST,
   ORDER_PAY_SUCCESS,
@@ -175,42 +178,42 @@ export const payOrder =
 //   }
 // }
 
-// export const listMyOrders = () => async (dispatch, getState) => {
-//   try {
-//     dispatch({
-//       type: ORDER_LIST_MY_REQUEST,
-//     })
+export const listMyOrders = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ORDER_LIST_MY_REQUEST,
+    });
 
-//     const {
-//       userLogin: { userInfo },
-//     } = getState()
+    const {
+      userLogin: { userInfo },
+    } = getState();
 
-//     const config = {
-//       headers: {
-//         Authorization: `Bearer ${userInfo.token}`,
-//       },
-//     }
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
 
-//     const { data } = await axios.get(`/api/orders/myorders`, config)
+    const { data } = await axios.get(`/api/orders/myorders`, config);
 
-//     dispatch({
-//       type: ORDER_LIST_MY_SUCCESS,
-//       payload: data,
-//     })
-//   } catch (error) {
-//     const message =
-//       error.response && error.response.data.message
-//         ? error.response.data.message
-//         : error.message
-//     if (message === 'Not authorized, token failed') {
-//       dispatch(logout())
-//     }
-//     dispatch({
-//       type: ORDER_LIST_MY_FAIL,
-//       payload: message,
-//     })
-//   }
-// }
+    dispatch({
+      type: ORDER_LIST_MY_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    // if (message === 'Not authorized, token failed') {
+    //   dispatch(logout())
+    // }
+    dispatch({
+      type: ORDER_LIST_MY_FAIL,
+      payload: message,
+    });
+  }
+};
 
 // export const listOrders = () => async (dispatch, getState) => {
 //   try {
