@@ -11,6 +11,7 @@ import ProfileScreen from "./Pages/ProfileScreen";
 import ShippingScreen from "./Pages/ShippingScreen";
 import PaymentScreen from "./Pages/PaymentScreen";
 import PlaceOrder from "./Pages/PlaceOrder";
+import OrderScreen from "./Pages/OrderScreen";
 
 const App = () => {
   return (
@@ -35,6 +36,9 @@ const App = () => {
           </Route>
           <Route path="/placeorder">
             <PlaceOrder />
+          </Route>
+          <Route path="/order/:id">
+            <OrderScreen />
           </Route>
           <Route path="/product/:id">
             <ProductPage />
