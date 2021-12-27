@@ -4,6 +4,14 @@ import Navbar from "./components/Navbar";
 import { Container } from "react-bootstrap";
 import HomePage from "./Pages/HomePage";
 import ProductPage from "./Pages/ProductPage";
+import CartScreen from "./Pages/CartScreen";
+import LoginScreen from "./Pages/LoginScreen";
+import RegisterScreen from "./Pages/RegisterScreen";
+import ProfileScreen from "./Pages/ProfileScreen";
+import ShippingScreen from "./Pages/ShippingScreen";
+import PaymentScreen from "./Pages/PaymentScreen";
+import PlaceOrder from "./Pages/PlaceOrder";
+import OrderScreen from "./Pages/OrderScreen";
 
 const App = () => {
   return (
@@ -11,11 +19,35 @@ const App = () => {
       <Navbar />
       <main className="py-3">
         <Container>
-          <Route path="/" exact>
-            <HomePage />
+          <Route path="/login">
+            <LoginScreen />
+          </Route>
+          <Route path="/register" exact>
+            <RegisterScreen />
+          </Route>
+          <Route path="/profile">
+            <ProfileScreen />
+          </Route>
+          <Route path="/shipping">
+            <ShippingScreen />
+          </Route>
+          <Route path="/payment">
+            <PaymentScreen />
+          </Route>
+          <Route path="/placeorder">
+            <PlaceOrder />
+          </Route>
+          <Route path="/order/:id">
+            <OrderScreen />
           </Route>
           <Route path="/product/:id">
             <ProductPage />
+          </Route>
+          <Route path="/cart/:id?">
+            <CartScreen />
+          </Route>
+          <Route path="/" exact>
+            <HomePage />
           </Route>
         </Container>
       </main>
