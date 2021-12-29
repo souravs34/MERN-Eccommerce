@@ -20,7 +20,7 @@ const ProductEditScreen = () => {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
-  //const [uploading, setUploading] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -53,28 +53,28 @@ const ProductEditScreen = () => {
     }
   }, [dispatch, history, productId, product, successUpdate]);
 
-  //   const uploadFileHandler = async (e) => {
-  //     const file = e.target.files[0];
-  //     const formData = new FormData();
-  //     formData.append("image", file);
-  //     setUploading(true);
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
 
-  //     try {
-  //       const config = {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //         },
-  //       };
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
 
-  //       const { data } = await axios.post("/api/upload", formData, config);
+      const { data } = await axios.post("/api/uploads/", formData, config);
 
-  //       setImage(data);
-  //       setUploading(false);
-  //     } catch (error) {
-  //       console.error(error);
-  //       setUploading(false);
-  //     }
-  //   };
+      setImage(data);
+      setUploading(false);
+    } catch (error) {
+      console.error(error);
+      setUploading(false);
+    }
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -91,7 +91,6 @@ const ProductEditScreen = () => {
       })
     );
   };
-
   return (
     <>
       <Link to="/admin/productlist" className="btn btn-light my-3">
@@ -139,9 +138,9 @@ const ProductEditScreen = () => {
                 id="image-file"
                 label="Choose File"
                 custom
-                // onChange={uploadFileHandler}
+                onChange={uploadFileHandler}
               ></Form.File>
-              {/* {uploading && <Loader />} */}
+              {uploading && <Loader />}
             </Form.Group>
 
             <Form.Group controlId="brand">
