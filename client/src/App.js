@@ -66,6 +66,9 @@ const App = () => {
           <Route path="/cart/:id?">
             <CartScreen />
           </Route>
+          <Route path="/search/:keyword">
+            <HomePage />
+          </Route>
           <Route path="/" exact>
             <HomePage />
           </Route>

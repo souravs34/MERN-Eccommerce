@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { logoutUser } from "../actions/userActions";
+import SearchBox from "../components/SearchBox";
 const Navbarr = () => {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
@@ -26,6 +27,7 @@ const Navbarr = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
+            <SearchBox />
             <Nav className="me-auto">
               {/* <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link> */}
