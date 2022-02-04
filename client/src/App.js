@@ -12,6 +12,11 @@ import ShippingScreen from "./Pages/ShippingScreen";
 import PaymentScreen from "./Pages/PaymentScreen";
 import PlaceOrder from "./Pages/PlaceOrder";
 import OrderScreen from "./Pages/OrderScreen";
+import UserListScreen from "./Pages/UserListScreen";
+import UserEditScreen from "./Pages/UserEditScreen";
+import ProductListScreen from "./Pages/ProductListScreen";
+import ProductEditScreen from "./Pages/ProductEditScreen";
+import OrderListScreen from "./Pages/OrderListScreen";
 
 const App = () => {
   return (
@@ -40,11 +45,38 @@ const App = () => {
           <Route path="/order/:id">
             <OrderScreen />
           </Route>
+          <Route path="/admin/userlist">
+            <UserListScreen />
+          </Route>
+          <Route path="/admin/user/:id/edit">
+            <UserEditScreen />
+          </Route>
+          <Route path="/admin/productlist" exact>
+            <ProductListScreen />
+          </Route>
+          <Route path="/admin/productlist/:pageNumber" exact>
+            <ProductListScreen />
+          </Route>
+          <Route path="/admin/product/:id/edit">
+            <ProductEditScreen />
+          </Route>
+          <Route path="/admin/orderlist">
+            <OrderListScreen />
+          </Route>
           <Route path="/product/:id">
             <ProductPage />
           </Route>
           <Route path="/cart/:id?">
             <CartScreen />
+          </Route>
+          <Route path="/search/:keyword" exact>
+            <HomePage />
+          </Route>
+          <Route path="/page/:pageNumber">
+            <HomePage />
+          </Route>
+          <Route path="/search/:keyword/page/:pageNumber">
+            <HomePage />
           </Route>
           <Route path="/" exact>
             <HomePage />
