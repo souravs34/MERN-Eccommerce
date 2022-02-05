@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(express.json());
-
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("Api is running");
 });
@@ -32,7 +32,7 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.get("/api/config/paypal", (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 );
-app.use(cors());
+
 app.use(notFound);
 app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
