@@ -1,6 +1,5 @@
 {
   "name": "client",
-  "proxy": "https://ecommercemarket.herokuapp.com",
   "version": "0.1.0",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -9,6 +8,7 @@
     "axios": "^0.22.0",
     "dotenv": "^16.0.0",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.4",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-paypal-button-v2": "^2.6.3",
