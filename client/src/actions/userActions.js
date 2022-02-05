@@ -39,7 +39,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/api/users/login",
+      `${process.env.REACT_APP_URL}/api/users/login`,
       { email, password },
       config
     );
@@ -83,7 +83,7 @@ export const register = (name, email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/api/users",
+      `${process.env.REACT_APP_URL}/api/users`,
       { name, email, password },
       config
     );
@@ -123,7 +123,10 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/users/${id}`, config);
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_URL}/api/users/${id}`,
+      config
+    );
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -159,7 +162,11 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`/api/users/profile`, user, config);
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_URL}/api/users/profile`,
+      user,
+      config
+    );
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
@@ -196,7 +203,10 @@ export const listUsers = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/users`, config);
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_URL}/api/users`,
+      config
+    );
 
     dispatch({
       type: USER_LIST_SUCCESS,
@@ -233,7 +243,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`/api/users/${id}`, config);
+    await axios.delete(`${process.env.REACT_APP_URL}/api/users/${id}`, config);
 
     dispatch({ type: USER_DELETE_SUCCESS });
   } catch (error) {
@@ -241,8 +251,8 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-    if (message === 'Not authorized, token failed') {
-      dispatch(logoutUser())
+    if (message === "Not authorized, token failed") {
+      dispatch(logoutUser());
     }
     dispatch({
       type: USER_DELETE_FAIL,
@@ -268,7 +278,11 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`/api/users/${user._id}`, user, config);
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_URL}/api/users/${user._id}`,
+      user,
+      config
+    );
 
     dispatch({ type: USER_UPDATE_SUCCESS });
 
