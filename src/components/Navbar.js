@@ -23,7 +23,9 @@ const Navbarr = () => {
       >
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Proshop</Navbar.Brand>
+            <Navbar.Brand>
+              <h3>Ｓ♢ＵＲΛＶ</h3>
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
